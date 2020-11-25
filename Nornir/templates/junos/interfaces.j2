@@ -1,0 +1,19 @@
+<configuration>
+{% for intf in interfaces -%}
+    <interfaces>
+        <interface>
+            <name>{{ intf }}</name>
+            <unit>
+                <name>0</name>
+                <family operation="replace">
+                    <inet>
+                        <address>
+                            <name>{{ interfaces[intf].ipv4_address }}</name>
+                        </address>
+                    </inet>
+                </family>
+            </unit>
+        </interface>
+    </interfaces>
+{% endfor %}
+</configuration>

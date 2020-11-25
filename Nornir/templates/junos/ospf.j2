@@ -1,0 +1,23 @@
+<configuration>
+            <protocols>
+                <ospf operation="replace">
+                {% for area, intfaces in ospf_int_1.items() -%}
+                    <area>
+                        <name>{{ area }}</name>
+                        {% for intf in intfaces -%}
+                        <interface>
+                            <name>{{ intf }}</name>
+                        {% if "lo" in intf%}
+                            <passive>
+                            </passive>
+                        {% endif %}
+                        {% if "lo" not in intf%}
+                            <priority>200</priority>
+                        {% endif %}
+                        </interface>
+                        {% endfor %}
+                    </area>
+                {% endfor %}
+                </ospf>
+            </protocols>
+        </configuration>
