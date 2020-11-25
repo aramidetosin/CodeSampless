@@ -7127,3 +7127,6 @@ AttributeError: 'list' object has no attribute 'items'
 2020-11-25 13:45:04,329 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 6 hosts
 2020-11-25 13:48:33,261 -  nornir.core -     INFO -        run() - Running task 'int_config' with args {} on 6 hosts
 2020-11-25 13:48:39,147 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 6 hosts
+2020-11-25 14:35:54,747 -  nornir.core -     INFO -        run() - Running task 'pyez_facts' with args {} on 6 hosts
+2020-11-25 14:37:35,433 -  nornir.core -     INFO -        run() - Running task 'pyez_facts' with args {} on 6 hosts
+2020-11-25 14:37:56,350 -  nornir.core -     INFO -        run() - Running task 'pyez_int_terse' with args {} on 6 hosts
