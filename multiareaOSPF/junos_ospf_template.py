@@ -14,6 +14,8 @@ junos_devices = nr.filter(F(node_type="router"))
 def ospf_config(task):
     data = {}
 
+    data['host_name'] = task.host['host_name']
+
     data['ospf_int'] = {}
     for intf in task.host['ospf_int']:
         data['ospf_int'][intf] = {}
@@ -25,6 +27,15 @@ def ospf_config(task):
         for add in task.host['interfaces'][inte]:
             data['interfaces'][inte]['ipv4_address'] = task.host['interfaces'][inte][add]
     # print(data)
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+                                                                                    '/CodeSamples/multiareaOSPF'
+                                                                                    '/hostname.j2',
+                                 template_vars=data, data_format='xml')
+    if hostname_response:
+        diff = task.run(task=pyez_diff, name='hostname diff')
+    if diff:
+        commit = task.run(task=pyez_commit, name='hostname commit')
+
     int_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
                                                                                '/CodeSamples/multiareaOSPF/interfaces'
                                                                                '.j2',

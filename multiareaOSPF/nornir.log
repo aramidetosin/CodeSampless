@@ -320,3 +320,8 @@ nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
 
 
 2020-11-26 00:10:32,816 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 00:33:49,003 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 00:38:24,884 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 00:39:26,914 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 00:49:08,483 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 00:51:14,524 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
