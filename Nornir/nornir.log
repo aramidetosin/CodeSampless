@@ -7130,3 +7130,817 @@ AttributeError: 'list' object has no attribute 'items'
 2020-11-25 14:35:54,747 -  nornir.core -     INFO -        run() - Running task 'pyez_facts' with args {} on 6 hosts
 2020-11-25 14:37:35,433 -  nornir.core -     INFO -        run() - Running task 'pyez_facts' with args {} on 6 hosts
 2020-11-25 14:37:56,350 -  nornir.core -     INFO -        run() - Running task 'pyez_int_terse' with args {} on 6 hosts
+2020-11-25 14:49:51,155 -  nornir.core -     INFO -        run() - Running task 'int_config' with args {} on 6 hosts
+2020-11-25 14:49:59,462 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 6 hosts
+2020-11-25 17:32:18,644 -  nornir.core -     INFO -        run() - Running task 'int_config' with args {} on 6 hosts
+2020-11-25 17:32:19,587 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/templates/junos/interfaces.j2", line 2, in top-level template code
+    {% if data['lacp']%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'data' is undefined
+
+2020-11-25 17:32:19,588 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'int_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/junos_interface_and_ospf_template.py", line 22, in int_config
+    int_response = task.run(name='int config', task=pyez_config,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-25 17:32:19,665 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/templates/junos/interfaces.j2", line 2, in top-level template code
+    {% if data['lacp']%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'data' is undefined
+
+2020-11-25 17:32:19,665 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'int_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/junos_interface_and_ospf_template.py", line 22, in int_config
+    int_response = task.run(name='int config', task=pyez_config,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-25 17:32:19,712 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/templates/junos/interfaces.j2", line 2, in top-level template code
+    {% if data['lacp']%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'data' is undefined
+
+2020-11-25 17:32:19,712 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'int_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/junos_interface_and_ospf_template.py", line 22, in int_config
+    int_response = task.run(name='int config', task=pyez_config,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-25 17:32:19,800 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/templates/junos/interfaces.j2", line 2, in top-level template code
+    {% if data['lacp']%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'data' is undefined
+
+2020-11-25 17:32:19,800 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'int_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/junos_interface_and_ospf_template.py", line 22, in int_config
+    int_response = task.run(name='int config', task=pyez_config,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-25 17:32:19,854 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/templates/junos/interfaces.j2", line 2, in top-level template code
+    {% if data['lacp']%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'data' is undefined
+
+2020-11-25 17:32:19,854 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'int_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/junos_interface_and_ospf_template.py", line 22, in int_config
+    int_response = task.run(name='int config', task=pyez_config,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-25 17:32:19,939 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/templates/junos/interfaces.j2", line 2, in top-level template code
+    {% if data['lacp']%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'data' is undefined
+
+2020-11-25 17:32:19,939 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'int_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/junos_interface_and_ospf_template.py", line 22, in int_config
+    int_response = task.run(name='int config', task=pyez_config,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-25 17:32:19,940 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 6 hosts
+2020-11-25 17:33:15,255 -  nornir.core -     INFO -        run() - Running task 'int_config' with args {} on 6 hosts
+2020-11-25 17:33:15,873 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/templates/junos/interfaces.j2", line 2, in top-level template code
+    {% if data['lacp']%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'data' is undefined
+
+2020-11-25 17:33:15,873 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/templates/junos/interfaces.j2", line 2, in top-level template code
+    {% if data['lacp']%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'data' is undefined
+
+2020-11-25 17:33:15,874 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'int_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/junos_interface_and_ospf_template.py", line 26, in int_config
+    int_response = task.run(name='int config', task=pyez_config,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-25 17:33:15,875 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'int_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/junos_interface_and_ospf_template.py", line 26, in int_config
+    int_response = task.run(name='int config', task=pyez_config,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-25 17:33:15,878 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/templates/junos/interfaces.j2", line 2, in top-level template code
+    {% if data['lacp']%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'data' is undefined
+
+2020-11-25 17:33:15,879 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'int_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/junos_interface_and_ospf_template.py", line 26, in int_config
+    int_response = task.run(name='int config', task=pyez_config,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-25 17:33:16,034 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/templates/junos/interfaces.j2", line 2, in top-level template code
+    {% if data['lacp']%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'data' is undefined
+
+2020-11-25 17:33:16,034 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'int_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/junos_interface_and_ospf_template.py", line 26, in int_config
+    int_response = task.run(name='int config', task=pyez_config,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-25 17:33:16,063 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/templates/junos/interfaces.j2", line 2, in top-level template code
+    {% if data['lacp']%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'data' is undefined
+
+2020-11-25 17:33:16,064 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'int_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/junos_interface_and_ospf_template.py", line 26, in int_config
+    int_response = task.run(name='int config', task=pyez_config,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-25 17:33:16,097 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/templates/junos/interfaces.j2", line 2, in top-level template code
+    {% if data['lacp']%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'data' is undefined
+
+2020-11-25 17:33:16,097 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'int_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/junos_interface_and_ospf_template.py", line 26, in int_config
+    int_response = task.run(name='int config', task=pyez_config,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-25 17:33:16,098 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 6 hosts
+2020-11-25 17:34:30,836 -  nornir.core -     INFO -        run() - Running task 'int_config' with args {} on 6 hosts
+2020-11-25 17:34:31,468 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/templates/junos/interfaces.j2", line 2, in top-level template code
+    {% if data['lacp']%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'data' is undefined
+
+2020-11-25 17:34:31,469 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'int_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/junos_interface_and_ospf_template.py", line 26, in int_config
+    int_response = task.run(name='int config', task=pyez_config,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-25 17:34:31,492 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/templates/junos/interfaces.j2", line 2, in top-level template code
+    {% if data['lacp']%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'data' is undefined
+
+2020-11-25 17:34:31,492 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'int_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/junos_interface_and_ospf_template.py", line 26, in int_config
+    int_response = task.run(name='int config', task=pyez_config,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-25 17:34:31,543 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/templates/junos/interfaces.j2", line 2, in top-level template code
+    {% if data['lacp']%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'data' is undefined
+
+2020-11-25 17:34:31,543 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'int_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/junos_interface_and_ospf_template.py", line 26, in int_config
+    int_response = task.run(name='int config', task=pyez_config,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-25 17:34:31,643 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/templates/junos/interfaces.j2", line 2, in top-level template code
+    {% if data['lacp']%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'data' is undefined
+
+2020-11-25 17:34:31,644 - nornir.core.task -    ERROR -      start() - Host 'R3': task 'int_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/junos_interface_and_ospf_template.py", line 26, in int_config
+    int_response = task.run(name='int config', task=pyez_config,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-25 17:34:31,727 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/templates/junos/interfaces.j2", line 2, in top-level template code
+    {% if data['lacp']%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'data' is undefined
+
+2020-11-25 17:34:31,727 - nornir.core.task -    ERROR -      start() - Host 'R5': task 'int_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/junos_interface_and_ospf_template.py", line 26, in int_config
+    int_response = task.run(name='int config', task=pyez_config,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-25 17:34:31,816 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/templates/junos/interfaces.j2", line 2, in top-level template code
+    {% if data['lacp']%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'data' is undefined
+
+2020-11-25 17:34:31,816 - nornir.core.task -    ERROR -      start() - Host 'R4': task 'int_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/junos_interface_and_ospf_template.py", line 26, in int_config
+    int_response = task.run(name='int config', task=pyez_config,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-25 17:34:31,817 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 6 hosts
+2020-11-25 17:37:14,783 -  nornir.core -     INFO -        run() - Running task 'int_config' with args {} on 6 hosts
+2020-11-25 17:37:27,894 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 6 hosts
+2020-11-25 17:39:24,238 -  nornir.core -     INFO -        run() - Running task 'lacp_config' with args {} on 2 hosts
+2020-11-25 17:44:56,367 -  nornir.core -     INFO -        run() - Running task 'lacp_config' with args {} on 2 hosts
+2020-11-25 17:44:57,187 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'lacp chassis config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/templates/junos/lacp_interface.j2", line 2, in top-level template code
+    {% if data['lacp'] == True %}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'data' is undefined
+
+2020-11-25 17:44:57,188 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'lacp_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/lacp_template.py", line 22, in lacp_config
+    chassis_response = task.run(name='lacp chassis config', task=pyez_config, template_path='/Users/aramide'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: lacp chassis config (failed)
+
+
+2020-11-25 17:44:57,194 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'lacp chassis config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: 
+configuration database locked by:
+  tosin terminal  (pid 33270) on since 2020-11-25 17:44:30 GMT
+      exclusive 
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 603, in lock
+    self.rpc.lock_configuration()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: configuration database locked by:
+  tosin terminal  (pid 33270) on since 2020-11-25 17:44:30 GMT
+      exclusive)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 22, in pyez_config
+    config.lock()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 606, in lock
+    raise LockError(rsp=err.rsp)
+jnpr.junos.exception.LockError: LockError(severity: error, bad_element: None, message: configuration database locked by:
+  tosin terminal  (pid 33270) on since 2020-11-25 17:44:30 GMT
+      exclusive)
+
+2020-11-25 17:44:57,194 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'lacp_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/lacp_template.py", line 22, in lacp_config
+    chassis_response = task.run(name='lacp chassis config', task=pyez_config, template_path='/Users/aramide'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: lacp chassis config (failed)
+
+
+2020-11-25 17:46:45,276 -  nornir.core -     INFO -        run() - Running task 'lacp_config' with args {} on 2 hosts
+2020-11-25 17:46:46,070 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'lacp chassis config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: 
+configuration database locked by:
+  tosin terminal  (pid 33295) on since 2020-11-25 17:46:11 GMT
+      exclusive 
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 603, in lock
+    self.rpc.lock_configuration()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: configuration database locked by:
+  tosin terminal  (pid 33295) on since 2020-11-25 17:46:11 GMT
+      exclusive)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 22, in pyez_config
+    config.lock()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 606, in lock
+    raise LockError(rsp=err.rsp)
+jnpr.junos.exception.LockError: LockError(severity: error, bad_element: None, message: configuration database locked by:
+  tosin terminal  (pid 33295) on since 2020-11-25 17:46:11 GMT
+      exclusive)
+
+2020-11-25 17:46:46,070 - nornir.core.task -    ERROR -      start() - Host 'R6': task 'lacp_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/lacp_template.py", line 22, in lacp_config
+    chassis_response = task.run(name='lacp chassis config', task=pyez_config, template_path='/Users/aramide'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: lacp chassis config (failed)
+
+
+2020-11-25 17:48:39,407 -  nornir.core -     INFO -        run() - Running task 'lacp_config' with args {} on 2 hosts
+2020-11-25 17:49:54,613 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'lacp chassis config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.16:830
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 19, in pyez_config
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/connections/__init__.py", line 35, in open
+    connection.open()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.16)
+
+2020-11-25 17:49:54,613 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'lacp_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/lacp_template.py", line 22, in lacp_config
+    chassis_response = task.run(name='lacp chassis config', task=pyez_config, template_path='/Users/aramide'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: lacp chassis config (failed)
+
+
+2020-11-25 17:51:12,804 -  nornir.core -     INFO -        run() - Running task 'int_config' with args {} on 6 hosts
+2020-11-25 17:51:21,402 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 6 hosts
+2020-11-25 17:53:30,247 -  nornir.core -     INFO -        run() - Running task 'lacp_config' with args {} on 2 hosts
+2020-11-25 17:54:45,539 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'lacp chassis config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.16:830
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 19, in pyez_config
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/connections/__init__.py", line 35, in open
+    connection.open()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.16)
+
+2020-11-25 17:54:45,541 - nornir.core.task -    ERROR -      start() - Host 'R7': task 'lacp_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/Nornir/lacp_template.py", line 22, in lacp_config
+    chassis_response = task.run(name='lacp chassis config', task=pyez_config, template_path='/Users/aramide'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: lacp chassis config (failed)
+
+
+2020-11-25 17:56:22,485 -  nornir.core -     INFO -        run() - Running task 'lacp_config' with args {} on 2 hosts
+2020-11-25 18:00:12,681 -  nornir.core -     INFO -        run() - Running task 'lacp_config' with args {} on 2 hosts

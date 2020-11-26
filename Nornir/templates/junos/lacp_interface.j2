@@ -1,0 +1,44 @@
+<configuration>
+{% if lacp == True %}
+            <chassis>
+                <aggregated-devices>
+                    <ethernet>
+                        <device-count>1</device-count>
+                    </ethernet>
+                </aggregated-devices>
+            </chassis>
+        <interfaces>
+            <interface>
+                <name>ae0</name>
+                    <aggregated-ether-options>
+                        <lacp>
+                            <active/>
+                        </lacp>
+                    </aggregated-ether-options>
+                    <unit>
+                        <name>0</name>
+                        <family>
+                            <ethernet-switching>
+                                <interface-mode>trunk</interface-mode>
+                                <vlan>
+                                    <members>all</members>
+                                </vlan>
+                            </ethernet-switching>
+                        </family>       
+                    </unit>
+                </interface>
+            </interfaces>
+{% endif %}
+        {% for intf in lacp_int_name -%}
+        <interfaces>
+            <interface operation="replace">
+                    <name>{{ intf }}</name>
+                    <gigether-options>
+                        <ieee-802.3ad>
+                            <bundle>ae0</bundle>
+                        </ieee-802.3ad>
+                    </gigether-options>
+            </interface>
+        </interfaces>
+        {% endfor %}
+</configuration>

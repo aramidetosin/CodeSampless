@@ -1,0 +1,322 @@
+2020-11-26 00:07:59,801 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 00:09:15,217 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.112:830
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 19, in pyez_config
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/connections/__init__.py", line 35, in open
+    connection.open()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.112)
+
+2020-11-26 00:09:15,218 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.114:830
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 19, in pyez_config
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/connections/__init__.py", line 35, in open
+    connection.open()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.114)
+
+2020-11-26 00:09:15,218 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.111:830
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 19, in pyez_config
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/connections/__init__.py", line 35, in open
+    connection.open()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.111)
+
+2020-11-26 00:09:15,218 - nornir.core.task -    ERROR -      start() - Host 'vMX6': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.116:830
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 19, in pyez_config
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/connections/__init__.py", line 35, in open
+    connection.open()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.116)
+
+2020-11-26 00:09:15,218 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.115:830
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 19, in pyez_config
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/connections/__init__.py", line 35, in open
+    connection.open()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.115)
+
+2020-11-26 00:09:15,218 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.117:830
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 19, in pyez_config
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/connections/__init__.py", line 35, in open
+    connection.open()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.117)
+
+2020-11-26 00:09:15,219 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.113:830
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 19, in pyez_config
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/connections/__init__.py", line 35, in open
+    connection.open()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.113)
+
+2020-11-26 00:09:15,219 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.118:830
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 19, in pyez_config
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/connections/__init__.py", line 35, in open
+    connection.open()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.118)
+
+2020-11-26 00:09:15,220 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    int_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 00:09:15,221 - nornir.core.task -    ERROR -      start() - Host 'vMX6': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    int_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 00:09:15,221 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    int_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 00:09:15,221 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    int_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 00:09:15,221 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    int_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 00:09:15,221 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    int_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 00:09:15,221 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    int_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 00:09:15,222 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    int_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 00:10:32,816 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts

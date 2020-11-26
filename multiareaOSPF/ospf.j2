@@ -1,0 +1,15 @@
+<configuration>
+{% for intf in ospf_int -%}
+            <protocols>
+                <ospf>
+                    <area>
+                        <name>{{ ospf_int[intf].ospf_area }}</name>
+                        <interface>
+                            <name>{{ intf }}</name>
+                            <priority>100</priority>
+                        </interface>
+                    </area>
+                </ospf>
+            </protocols>
+{% endfor %}
+</configuration>
