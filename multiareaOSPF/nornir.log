@@ -325,3 +325,1827 @@ nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
 2020-11-26 00:39:26,914 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
 2020-11-26 00:49:08,483 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
 2020-11-26 00:51:14,524 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 01:16:26,471 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_facts']} on 8 hosts
+2020-11-26 01:16:58,640 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_facts']} on 8 hosts
+2020-11-26 01:17:19,457 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_facts']} on 8 hosts
+2020-11-26 01:17:34,683 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_facts']} on 8 hosts
+2020-11-26 01:18:38,318 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_facts']} on 8 hosts
+2020-11-26 01:19:51,405 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_facts']} on 8 hosts
+2020-11-26 01:23:31,455 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_facts']} on 8 hosts
+2020-11-26 01:23:46,771 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 01:23:46,781 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 18, in ospf_config
+    data['lan'] = task.host['lan']
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 296, in __getitem__
+    return self.data[item]
+KeyError: 'lan'
+
+2020-11-26 01:24:51,203 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 01:25:49,580 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_facts']} on 8 hosts
+2020-11-26 01:27:07,262 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_facts']} on 8 hosts
+2020-11-26 07:12:13,672 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 07:12:46,800 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'config ospf' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: name, message: syntax error)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: error, bad_element: name, message: error: syntax error)
+
+2020-11-26 07:12:46,802 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 48, in ospf_config
+    response = task.run(task=pyez_config, template_path='/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: config ospf (failed)
+
+
+2020-11-26 07:12:49,063 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'config ospf' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: name, message: syntax error)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: error, bad_element: name, message: error: syntax error)
+
+2020-11-26 07:12:49,063 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 48, in ospf_config
+    response = task.run(task=pyez_config, template_path='/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: config ospf (failed)
+
+
+2020-11-26 07:14:43,976 - nornir.core.task -    ERROR -      start() - Host 'vMX6': task 'config ospf' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: name, message: syntax error)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: error, bad_element: name, message: error: syntax error)
+
+2020-11-26 07:14:43,978 - nornir.core.task -    ERROR -      start() - Host 'vMX6': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 48, in ospf_config
+    response = task.run(task=pyez_config, template_path='/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: config ospf (failed)
+
+
+2020-11-26 07:16:17,489 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'config ospf' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: name, message: syntax error)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: error, bad_element: name, message: error: syntax error)
+
+2020-11-26 07:16:17,490 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 48, in ospf_config
+    response = task.run(task=pyez_config, template_path='/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: config ospf (failed)
+
+
+2020-11-26 07:17:28,886 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'int commit' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 366, in _request
+    raise TimeoutExpiredError('ncclient timed out while waiting for an rpc reply.')
+ncclient.operations.errors.TimeoutExpiredError: ncclient timed out while waiting for an rpc reply.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_commit.py", line 15, in pyez_commit
+    config.commit()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 149, in commit
+    rsp = self.rpc.commit_configuration(*rpc_varg, **rpc_args)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 842, in execute
+    raise EzErrors.RpcTimeoutError(self, rpc_cmd_e.tag, self.timeout)
+jnpr.junos.exception.RpcTimeoutError: RpcTimeoutError(host: 192.168.20.111, cmd: commit-configuration, timeout: 300)
+
+2020-11-26 07:17:28,888 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 47, in ospf_config
+    commit = task.run(task=pyez_commit, name='int commit')
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int commit (failed)
+
+
+2020-11-26 07:17:30,950 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'int commit' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 366, in _request
+    raise TimeoutExpiredError('ncclient timed out while waiting for an rpc reply.')
+ncclient.operations.errors.TimeoutExpiredError: ncclient timed out while waiting for an rpc reply.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_commit.py", line 15, in pyez_commit
+    config.commit()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 149, in commit
+    rsp = self.rpc.commit_configuration(*rpc_varg, **rpc_args)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 842, in execute
+    raise EzErrors.RpcTimeoutError(self, rpc_cmd_e.tag, self.timeout)
+jnpr.junos.exception.RpcTimeoutError: RpcTimeoutError(host: 192.168.20.115, cmd: commit-configuration, timeout: 300)
+
+2020-11-26 07:17:30,950 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 47, in ospf_config
+    commit = task.run(task=pyez_commit, name='int commit')
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int commit (failed)
+
+
+2020-11-26 07:18:02,306 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 07:18:02,331 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.112:830
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 19, in pyez_config
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/connections/__init__.py", line 35, in open
+    connection.open()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1379, in open
+    raise EzErrors.ConnectRefusedError(self)
+jnpr.junos.exception.ConnectRefusedError: ConnectRefusedError(192.168.20.112)
+
+2020-11-26 07:18:02,332 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 31, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:18:22,430 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: 
+configuration database locked by:
+  tosin terminal  (pid 17524) on since 2020-11-26 07:16:03 GMT, idle 00:02:07
+      exclusive 
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 603, in lock
+    self.rpc.lock_configuration()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: configuration database locked by:
+  tosin terminal  (pid 17524) on since 2020-11-26 07:16:03 GMT, idle 00:02:07
+      exclusive)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 22, in pyez_config
+    config.lock()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 606, in lock
+    raise LockError(rsp=err.rsp)
+jnpr.junos.exception.LockError: LockError(severity: error, bad_element: None, message: configuration database locked by:
+  tosin terminal  (pid 17524) on since 2020-11-26 07:16:03 GMT, idle 00:02:07
+      exclusive)
+
+2020-11-26 07:18:22,430 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 31, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:18:25,469 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'config ospf' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: name, message: syntax error)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: error, bad_element: name, message: error: syntax error)
+
+2020-11-26 07:18:25,470 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 48, in ospf_config
+    response = task.run(task=pyez_config, template_path='/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: config ospf (failed)
+
+
+2020-11-26 07:18:26,403 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'config ospf' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: name, message: syntax error)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: error, bad_element: name, message: error: syntax error)
+
+2020-11-26 07:18:26,403 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 48, in ospf_config
+    response = task.run(task=pyez_config, template_path='/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: config ospf (failed)
+
+
+2020-11-26 07:19:07,214 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: 
+configuration database locked by:
+  tosin terminal  (pid 18062) on since 2020-11-26 04:41:34 GMT, idle 02:37:32
+      exclusive 
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 603, in lock
+    self.rpc.lock_configuration()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: configuration database locked by:
+  tosin terminal  (pid 18062) on since 2020-11-26 04:41:34 GMT, idle 02:37:32
+      exclusive)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 22, in pyez_config
+    config.lock()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 606, in lock
+    raise LockError(rsp=err.rsp)
+jnpr.junos.exception.LockError: LockError(severity: error, bad_element: None, message: configuration database locked by:
+  tosin terminal  (pid 18062) on since 2020-11-26 04:41:34 GMT, idle 02:37:32
+      exclusive)
+
+2020-11-26 07:19:07,215 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 31, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:19:23,810 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: 
+configuration database locked by:
+  tosin terminal  (pid 17484) on since 2020-11-26 04:41:35 GMT, idle 02:37:48
+      exclusive 
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 603, in lock
+    self.rpc.lock_configuration()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: configuration database locked by:
+  tosin terminal  (pid 17484) on since 2020-11-26 04:41:35 GMT, idle 02:37:48
+      exclusive)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 22, in pyez_config
+    config.lock()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 606, in lock
+    raise LockError(rsp=err.rsp)
+jnpr.junos.exception.LockError: LockError(severity: error, bad_element: None, message: configuration database locked by:
+  tosin terminal  (pid 17484) on since 2020-11-26 04:41:35 GMT, idle 02:37:48
+      exclusive)
+
+2020-11-26 07:19:23,811 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 31, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:20:19,998 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 07:20:20,910 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: 
+configuration database locked by:
+  tosin terminal  (pid 17484) on since 2020-11-26 04:41:35 GMT, idle 02:38:45
+      exclusive 
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 603, in lock
+    self.rpc.lock_configuration()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: configuration database locked by:
+  tosin terminal  (pid 17484) on since 2020-11-26 04:41:35 GMT, idle 02:38:45
+      exclusive)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 22, in pyez_config
+    config.lock()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 606, in lock
+    raise LockError(rsp=err.rsp)
+jnpr.junos.exception.LockError: LockError(severity: error, bad_element: None, message: configuration database locked by:
+  tosin terminal  (pid 17484) on since 2020-11-26 04:41:35 GMT, idle 02:38:45
+      exclusive)
+
+2020-11-26 07:20:20,910 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 31, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:20:41,488 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'config ospf' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: name, message: syntax error)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: error, bad_element: name, message: error: syntax error)
+
+2020-11-26 07:20:41,489 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 48, in ospf_config
+    response = task.run(task=pyez_config, template_path='/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: config ospf (failed)
+
+
+2020-11-26 07:20:42,044 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'config ospf' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: name, message: syntax error)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: error, bad_element: name, message: error: syntax error)
+
+2020-11-26 07:20:42,044 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 48, in ospf_config
+    response = task.run(task=pyez_config, template_path='/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: config ospf (failed)
+
+
+2020-11-26 07:24:39,123 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 07:24:40,282 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/hostname.j2", line 3, in top-level template code
+    <host-name>{{ host_name.upper() }}</host-name>
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'host_name' is undefined
+
+2020-11-26 07:24:40,282 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:24:40,399 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/hostname.j2", line 3, in top-level template code
+    <host-name>{{ host_name.upper() }}</host-name>
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'host_name' is undefined
+
+2020-11-26 07:24:40,400 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:24:40,486 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/hostname.j2", line 3, in top-level template code
+    <host-name>{{ host_name.upper() }}</host-name>
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'host_name' is undefined
+
+2020-11-26 07:24:40,486 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:24:42,973 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/hostname.j2", line 3, in top-level template code
+    <host-name>{{ host_name.upper() }}</host-name>
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'host_name' is undefined
+
+2020-11-26 07:24:42,973 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:24:44,815 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/hostname.j2", line 3, in top-level template code
+    <host-name>{{ host_name.upper() }}</host-name>
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'host_name' is undefined
+
+2020-11-26 07:24:44,816 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:25:38,913 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: 
+configuration database locked by:
+  tosin terminal  (pid 18648) on since 2020-11-26 07:20:23 GMT, idle 00:04:50
+      exclusive 
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 603, in lock
+    self.rpc.lock_configuration()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: configuration database locked by:
+  tosin terminal  (pid 18648) on since 2020-11-26 07:20:23 GMT, idle 00:04:50
+      exclusive)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 22, in pyez_config
+    config.lock()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 606, in lock
+    raise LockError(rsp=err.rsp)
+jnpr.junos.exception.LockError: LockError(severity: error, bad_element: None, message: configuration database locked by:
+  tosin terminal  (pid 18648) on since 2020-11-26 07:20:23 GMT, idle 00:04:50
+      exclusive)
+
+2020-11-26 07:25:38,914 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:39:52,983 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 07:39:54,596 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/hostname.j2", line 3, in top-level template code
+    <host-name>{{ host_name.upper() }}</host-name>
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'host_name' is undefined
+
+2020-11-26 07:39:54,597 - nornir.core.task -    ERROR -      start() - Host 'vMX6': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/hostname.j2", line 3, in top-level template code
+    <host-name>{{ host_name.upper() }}</host-name>
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'host_name' is undefined
+
+2020-11-26 07:39:54,597 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:39:54,597 - nornir.core.task -    ERROR -      start() - Host 'vMX6': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:39:54,666 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/hostname.j2", line 3, in top-level template code
+    <host-name>{{ host_name.upper() }}</host-name>
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'host_name' is undefined
+
+2020-11-26 07:39:54,666 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:39:54,819 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/hostname.j2", line 3, in top-level template code
+    <host-name>{{ host_name.upper() }}</host-name>
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'host_name' is undefined
+
+2020-11-26 07:39:54,820 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:39:54,924 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/hostname.j2", line 3, in top-level template code
+    <host-name>{{ host_name.upper() }}</host-name>
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'host_name' is undefined
+
+2020-11-26 07:39:54,924 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:39:54,948 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/hostname.j2", line 3, in top-level template code
+    <host-name>{{ host_name.upper() }}</host-name>
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'host_name' is undefined
+
+2020-11-26 07:39:54,949 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:39:55,000 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/hostname.j2", line 3, in top-level template code
+    <host-name>{{ host_name.upper() }}</host-name>
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'host_name' is undefined
+
+2020-11-26 07:39:55,001 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:39:55,112 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/hostname.j2", line 3, in top-level template code
+    <host-name>{{ host_name.upper() }}</host-name>
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'host_name' is undefined
+
+2020-11-26 07:39:55,113 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 28, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:42:41,136 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 07:42:42,518 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: error, bad_element: None, message: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>)
+
+2020-11-26 07:42:42,519 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 31, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:42:42,568 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: error, bad_element: None, message: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>)
+
+2020-11-26 07:42:42,568 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 31, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:42:42,650 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: error, bad_element: None, message: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>)
+
+2020-11-26 07:42:42,650 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 31, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:42:42,717 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: error, bad_element: None, message: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>)
+
+2020-11-26 07:42:42,718 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 31, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:42:42,754 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: error, bad_element: None, message: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>)
+
+2020-11-26 07:42:42,754 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 31, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:42:42,784 - nornir.core.task -    ERROR -      start() - Host 'vMX6': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: error, bad_element: None, message: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>)
+
+2020-11-26 07:42:42,784 - nornir.core.task -    ERROR -      start() - Host 'vMX6': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 31, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:42:42,789 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: error, bad_element: None, message: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>)
+
+2020-11-26 07:42:42,790 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 31, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:42:42,862 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'int config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: None, message: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: error, bad_element: None, message: error: domain-name: '': Must be a string of alphanumericals, dashes or underscores
+error: syntax error, expecting <rpc> or </rpc>)
+
+2020-11-26 07:42:42,863 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'ospf_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_ospf_template.py", line 31, in ospf_config
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
+
+
+2020-11-26 07:43:57,268 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 07:47:47,644 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 07:50:48,388 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 07:53:01,649 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 07:56:01,263 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 07:57:03,047 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 08:06:33,876 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 08:07:32,921 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 08:08:47,818 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 12:44:10,698 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-26 15:57:17,748 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts

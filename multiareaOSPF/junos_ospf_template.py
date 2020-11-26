@@ -15,18 +15,29 @@ def ospf_config(task):
     data = {}
 
     data['host_name'] = task.host['host_name']
+    data['lan'] = task.host['lan']
 
     data['ospf_int'] = {}
     for intf in task.host['ospf_int']:
         data['ospf_int'][intf] = {}
         for area in task.host['ospf_int'][intf]:
-            data['ospf_int'][intf]['ospf_area'] = task.host['ospf_int'][intf][area]
+            data['ospf_int'][intf][area] = task.host['ospf_int'][intf][area]
     data['interfaces'] = {}
     for inte in task.host['interfaces']:
         data['interfaces'][inte] = {}
         for add in task.host['interfaces'][inte]:
             data['interfaces'][inte]['ipv4_address'] = task.host['interfaces'][inte][add]
     # print(data)
+
+    hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
+                                                                                    '/CodeSamples/multiareaOSPF'
+                                                                                    '/hostname.j2',
+                                 template_vars=data, data_format='xml')
+    if hostname_response:
+        diff = task.run(task=pyez_diff, name='hostname diff')
+    if diff:
+        commit = task.run(task=pyez_commit, name='hostname commit')
+
     hostname_response = task.run(name='int config', task=pyez_config, template_path='/Users/aramide/PycharmProjects'
                                                                                     '/CodeSamples/multiareaOSPF'
                                                                                     '/hostname.j2',
