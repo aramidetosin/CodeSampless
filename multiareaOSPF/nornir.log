@@ -2194,3 +2194,372 @@ nornir.core.exceptions.NornirSubTaskError: Subtask: Set ISO and NET (failed)
 2020-11-27 11:57:25,819 -  nornir.core -     INFO -        run() - Running task 'pyez_config' with args {'payload': 'delete protocols isis', 'data_format': 'set', 'commit_now': True} on 8 hosts
 2020-11-27 11:57:56,472 -  nornir.core -     INFO -        run() - Running task 'isis_config' with args {} on 8 hosts
 2020-11-27 12:54:33,083 -  nornir.core -     INFO -        run() - Running task 'isis_config' with args {} on 8 hosts
+2020-11-27 14:25:51,910 -  nornir.core -     INFO -        run() - Running task 'isis_config' with args {} on 8 hosts
+2020-11-27 14:27:51,878 -  nornir.core -     INFO -        run() - Running task 'isis_config' with args {} on 8 hosts
+2020-11-27 14:28:57,399 -  nornir.core -     INFO -        run() - Running task 'isis_config' with args {} on 8 hosts
+2020-11-27 14:33:54,746 -  nornir.core -     INFO -        run() - Running task 'isis_config' with args {} on 8 hosts
+2020-11-27 14:33:55,547 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'Set ISO and NET' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/isis_interfaces.j2", line 9, in top-level template code
+    {% if sis_int[intf].isActive == True -%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'sis_int' is undefined
+
+2020-11-27 14:33:55,548 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'isis_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_isis_template.py", line 22, in isis_config
+    net_response = task.run(task=pyez_config, template_path='/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Set ISO and NET (failed)
+
+
+2020-11-27 14:33:55,624 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'Set ISO and NET' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/isis_interfaces.j2", line 9, in top-level template code
+    {% if sis_int[intf].isActive == True -%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'sis_int' is undefined
+
+2020-11-27 14:33:55,624 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'isis_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_isis_template.py", line 22, in isis_config
+    net_response = task.run(task=pyez_config, template_path='/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Set ISO and NET (failed)
+
+
+2020-11-27 14:33:55,665 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'Set ISO and NET' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/isis_interfaces.j2", line 9, in top-level template code
+    {% if sis_int[intf].isActive == True -%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'sis_int' is undefined
+
+2020-11-27 14:33:55,665 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'isis_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_isis_template.py", line 22, in isis_config
+    net_response = task.run(task=pyez_config, template_path='/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Set ISO and NET (failed)
+
+
+2020-11-27 14:33:55,763 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'Set ISO and NET' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/isis_interfaces.j2", line 9, in top-level template code
+    {% if sis_int[intf].isActive == True -%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'sis_int' is undefined
+
+2020-11-27 14:33:55,763 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'isis_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_isis_template.py", line 22, in isis_config
+    net_response = task.run(task=pyez_config, template_path='/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Set ISO and NET (failed)
+
+
+2020-11-27 14:33:55,794 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'Set ISO and NET' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/isis_interfaces.j2", line 9, in top-level template code
+    {% if sis_int[intf].isActive == True -%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'sis_int' is undefined
+
+2020-11-27 14:33:55,794 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'isis_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_isis_template.py", line 22, in isis_config
+    net_response = task.run(task=pyez_config, template_path='/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Set ISO and NET (failed)
+
+
+2020-11-27 14:33:55,814 - nornir.core.task -    ERROR -      start() - Host 'vMX6': task 'Set ISO and NET' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/isis_interfaces.j2", line 9, in top-level template code
+    {% if sis_int[intf].isActive == True -%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'sis_int' is undefined
+
+2020-11-27 14:33:55,814 - nornir.core.task -    ERROR -      start() - Host 'vMX6': task 'isis_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_isis_template.py", line 22, in isis_config
+    net_response = task.run(task=pyez_config, template_path='/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Set ISO and NET (failed)
+
+
+2020-11-27 14:33:55,949 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'Set ISO and NET' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/isis_interfaces.j2", line 9, in top-level template code
+    {% if sis_int[intf].isActive == True -%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'sis_int' is undefined
+
+2020-11-27 14:33:55,949 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'isis_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_isis_template.py", line 22, in isis_config
+    net_response = task.run(task=pyez_config, template_path='/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Set ISO and NET (failed)
+
+
+2020-11-27 14:33:56,001 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'Set ISO and NET' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 558, in load
+    rpc_contents = template.render(kvargs.get("template_vars", {}))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/isis_interfaces.j2", line 9, in top-level template code
+    {% if sis_int[intf].isActive == True -%}
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jinja2/environment.py", line 452, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'sis_int' is undefined
+
+2020-11-27 14:33:56,001 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'isis_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_isis_template.py", line 22, in isis_config
+    net_response = task.run(task=pyez_config, template_path='/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Set ISO and NET (failed)
+
+
+2020-11-27 14:35:02,312 -  nornir.core -     INFO -        run() - Running task 'isis_config' with args {} on 8 hosts
+2020-11-27 14:35:03,225 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'Set ISO and NET' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: mgd: statement has no contents; ignored
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: warning, bad_element: family, message: mgd: statement has no contents; ignored)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: warning, bad_element: family, message: warning: mgd: statement has no contents; ignored)
+
+2020-11-27 14:35:03,226 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'isis_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_isis_template.py", line 22, in isis_config
+    net_response = task.run(task=pyez_config, template_path='/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Set ISO and NET (failed)
+
+
+2020-11-27 14:36:19,539 -  nornir.core -     INFO -        run() - Running task 'isis_config' with args {} on 8 hosts
+2020-11-27 14:36:20,358 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'Set ISO and NET' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: mgd: statement has no contents; ignored
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: warning, bad_element: family, message: mgd: statement has no contents; ignored)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: warning, bad_element: family, message: warning: mgd: statement has no contents; ignored)
+
+2020-11-27 14:36:20,359 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'isis_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_isis_template.py", line 22, in isis_config
+    net_response = task.run(task=pyez_config, template_path='/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Set ISO and NET (failed)
+
+
+2020-11-27 14:37:04,242 -  nornir.core -     INFO -        run() - Running task 'isis_config' with args {} on 8 hosts
