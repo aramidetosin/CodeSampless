@@ -2149,3 +2149,48 @@ nornir.core.exceptions.NornirSubTaskError: Subtask: int config (failed)
 2020-11-26 08:08:47,818 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
 2020-11-26 12:44:10,698 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
 2020-11-26 15:57:17,748 -  nornir.core -     INFO -        run() - Running task 'ospf_config' with args {} on 8 hosts
+2020-11-27 11:06:24,753 -  nornir.core -     INFO -        run() - Running task 'isis_config' with args {} on 8 hosts
+2020-11-27 11:07:40,471 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'Set ISO and NET' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.113:830
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 19, in pyez_config
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir_pyez/plugins/connections/__init__.py", line 35, in open
+    connection.open()
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.113)
+
+2020-11-27 11:07:40,473 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'isis_config' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/junos_isis_template.py", line 22, in isis_config
+    net_response = task.run(task=pyez_config, template_path='/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF'
+  File "/Users/aramide/PycharmProjects/CodeSamples/venv/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Set ISO and NET (failed)
+
+
+2020-11-27 11:16:35,151 -  nornir.core -     INFO -        run() - Running task 'isis_config' with args {} on 8 hosts
+2020-11-27 11:57:25,819 -  nornir.core -     INFO -        run() - Running task 'pyez_config' with args {'payload': 'delete protocols isis', 'data_format': 'set', 'commit_now': True} on 8 hosts
+2020-11-27 11:57:56,472 -  nornir.core -     INFO -        run() - Running task 'isis_config' with args {} on 8 hosts
+2020-11-27 12:54:33,083 -  nornir.core -     INFO -        run() - Running task 'isis_config' with args {} on 8 hosts
