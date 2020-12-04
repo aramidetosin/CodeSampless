@@ -2,9 +2,9 @@
 inventory:
     plugin: YAMLInventory
     options:
-        host_file: '/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/hosts/hosts.yml'
-        group_file: '/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/groups/groups.yml'
-        defaults_file: '/Users/aramide/PycharmProjects/CodeSamples/multiareaOSPF/defaults/defaults.yml'
+        host_file: '/home/aramide/CodeSampless/multiareaOSPF/hosts/hosts.yml'
+        group_file: '/home/aramide/CodeSampless/multiareaOSPF/groups/groups.yml'
+        defaults_file: '/home/aramide/CodeSampless/multiareaOSPF/defaults/defaults.yml'
 
 runner:
     plugin: threaded

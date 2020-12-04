@@ -2563,3 +2563,1943 @@ nornir.core.exceptions.NornirSubTaskError: Subtask: Set ISO and NET (failed)
 
 
 2020-11-27 14:37:04,242 -  nornir.core -     INFO -        run() - Running task 'isis_config' with args {} on 8 hosts
+2020-12-04 20:37:40,216 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_facts']} on 8 hosts
+2020-12-04 20:37:43,297 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.114:22
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/napalm/junos/junos.py", line 127, in open
+    self.device.open(auto_probe=self.auto_probe)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.114)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/napalm/junos/junos.py", line 129, in open
+    raise ConnectionException(cte.msg) from cte
+napalm.base.exceptions.ConnectionException: None
+
+2020-12-04 20:40:08,067 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'detail', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-04 20:40:11,132 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.114:830
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 16, in pyez_rpc
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/connections/__init__.py", line 34, in open
+    connection.open()
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.114)
+
+2020-12-04 20:40:59,463 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-04 20:41:02,524 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.114:830
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 16, in pyez_rpc
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/connections/__init__.py", line 34, in open
+    connection.open()
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.114)
+
+2020-12-04 20:43:37,409 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information'} on 8 hosts
+2020-12-04 20:43:37,410 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+TypeError: pyez_rpc() missing 1 required positional argument: 'extras'
+
+2020-12-04 20:43:37,410 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+TypeError: pyez_rpc() missing 1 required positional argument: 'extras'
+
+2020-12-04 20:43:37,410 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+TypeError: pyez_rpc() missing 1 required positional argument: 'extras'
+
+2020-12-04 20:43:37,410 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+TypeError: pyez_rpc() missing 1 required positional argument: 'extras'
+
+2020-12-04 20:43:37,411 - nornir.core.task -    ERROR -      start() - Host 'vMX6': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+TypeError: pyez_rpc() missing 1 required positional argument: 'extras'
+
+2020-12-04 20:43:37,411 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+TypeError: pyez_rpc() missing 1 required positional argument: 'extras'
+
+2020-12-04 20:43:37,411 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+TypeError: pyez_rpc() missing 1 required positional argument: 'extras'
+
+2020-12-04 20:43:37,412 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+TypeError: pyez_rpc() missing 1 required positional argument: 'extras'
+
+2020-12-04 20:44:37,108 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information', 'extras': None} on 8 hosts
+2020-12-04 20:45:47,295 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information', 'extras': {'level-extra': 'ospf-neighbor'}} on 8 hosts
+2020-12-04 20:45:47,949 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:45:48,075 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:45:48,178 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:45:48,181 - nornir.core.task -    ERROR -      start() - Host 'vMX6': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:45:48,251 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:45:48,272 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:45:48,272 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:45:48,431 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:48:26,198 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information', 'extras': {'level-extra': 'brief'}} on 8 hosts
+2020-12-04 20:48:26,784 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:48:27,168 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:48:27,199 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:48:27,224 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:48:27,239 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:48:27,274 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:48:27,293 - nornir.core.task -    ERROR -      start() - Host 'vMX6': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:48:27,349 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:48:54,225 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information', 'extras': {'level-extra': 'brief'}} on 8 hosts
+2020-12-04 20:48:54,813 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:48:55,099 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:48:55,114 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:48:55,243 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:48:55,275 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:48:55,297 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:48:55,321 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:48:55,342 - nornir.core.task -    ERROR -      start() - Host 'vMX6': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:54:27,515 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information', 'extras': {'level-extra': 'brief', 'neighbor': '192.168.34.3'}} on 8 hosts
+2020-12-04 20:54:28,350 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:54:28,504 - nornir.core.task -    ERROR -      start() - Host 'vMX6': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:54:28,570 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:54:28,580 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:54:28,585 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:54:28,645 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:54:28,657 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:54:28,727 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:55:23,548 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information', 'extras': {'level-extra': 'detail', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-04 20:55:24,309 - nornir.core.task -    ERROR -      start() - Host 'vMX6': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:55:24,437 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:55:24,454 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:55:24,477 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:55:24,526 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:55:24,556 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:55:24,567 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:55:24,629 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 20:56:39,913 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'detail', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-04 20:57:00,655 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-04 21:04:21,988 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-route-information', 'extras': {'level-extra': 'detail', 'destination': '3.3.3.3'}} on 8 hosts
+2020-12-04 21:04:22,706 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 21:04:22,955 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 21:04:22,981 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 21:04:23,079 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 21:04:23,089 - nornir.core.task -    ERROR -      start() - Host 'vMX6': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 21:04:23,108 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 21:04:23,148 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 21:04:23,149 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'pyez_rpc' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error, expecting <invoke-on>
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 19, in pyez_rpc
+    data = function(**extras)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: level-extra, message: error: syntax error, expecting <invoke-on>
+error: syntax error)
+
+2020-12-04 21:04:49,404 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-route-information', 'extras': None} on 8 hosts
+2020-12-04 21:06:36,856 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-route-information', 'extras': None} on 8 hosts
+2020-12-04 21:06:51,823 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-route-information', 'extras': None} on 8 hosts
+2020-12-04 21:07:12,906 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-route-information', 'extras': None} on 8 hosts
+2020-12-04 21:10:04,149 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-route-information', 'extras': None} on 8 hosts
+2020-12-04 21:11:31,052 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information', 'extras': None} on 8 hosts
+2020-12-04 21:12:30,591 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information', 'extras': None} on 8 hosts
