@@ -4503,3 +4503,953 @@ error: syntax error)
 2020-12-04 21:10:04,149 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-route-information', 'extras': None} on 8 hosts
 2020-12-04 21:11:31,052 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information', 'extras': None} on 8 hosts
 2020-12-04 21:12:30,591 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information', 'extras': None} on 8 hosts
+2020-12-04 21:20:21,710 -  nornir.core -     INFO -        run() - Running task 'isis_deploy' with args {} on 8 hosts
+2020-12-04 21:20:22,888 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'getting IS-IS neighbors' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 21, in pyez_rpc
+    data = function()
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: get-isis-layer2-map-information, message: syntax error)
+
+2020-12-04 21:20:22,889 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'isis_deploy' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "get_isis.py", line 16, in isis_deploy
+    neighbors = task.run(name='getting IS-IS neighbors',
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: getting IS-IS neighbors (failed)
+
+
+2020-12-04 21:20:23,132 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'getting IS-IS neighbors' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 21, in pyez_rpc
+    data = function()
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: get-isis-layer2-map-information, message: syntax error)
+
+2020-12-04 21:20:23,132 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'isis_deploy' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "get_isis.py", line 16, in isis_deploy
+    neighbors = task.run(name='getting IS-IS neighbors',
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: getting IS-IS neighbors (failed)
+
+
+2020-12-04 21:20:23,140 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'getting IS-IS neighbors' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 21, in pyez_rpc
+    data = function()
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: get-isis-layer2-map-information, message: syntax error)
+
+2020-12-04 21:20:23,140 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'isis_deploy' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "get_isis.py", line 16, in isis_deploy
+    neighbors = task.run(name='getting IS-IS neighbors',
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: getting IS-IS neighbors (failed)
+
+
+2020-12-04 21:20:23,193 - nornir.core.task -    ERROR -      start() - Host 'vMX6': task 'getting IS-IS neighbors' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 21, in pyez_rpc
+    data = function()
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: get-isis-layer2-map-information, message: syntax error)
+
+2020-12-04 21:20:23,194 - nornir.core.task -    ERROR -      start() - Host 'vMX6': task 'isis_deploy' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "get_isis.py", line 16, in isis_deploy
+    neighbors = task.run(name='getting IS-IS neighbors',
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: getting IS-IS neighbors (failed)
+
+
+2020-12-04 21:20:23,348 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'getting IS-IS neighbors' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 21, in pyez_rpc
+    data = function()
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: get-isis-layer2-map-information, message: syntax error)
+
+2020-12-04 21:20:23,349 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'isis_deploy' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "get_isis.py", line 16, in isis_deploy
+    neighbors = task.run(name='getting IS-IS neighbors',
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: getting IS-IS neighbors (failed)
+
+
+2020-12-04 21:20:23,618 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'getting IS-IS neighbors' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 21, in pyez_rpc
+    data = function()
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: get-isis-layer2-map-information, message: syntax error)
+
+2020-12-04 21:20:23,619 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'isis_deploy' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "get_isis.py", line 16, in isis_deploy
+    neighbors = task.run(name='getting IS-IS neighbors',
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: getting IS-IS neighbors (failed)
+
+
+2020-12-04 21:20:23,629 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'getting IS-IS neighbors' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 21, in pyez_rpc
+    data = function()
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: get-isis-layer2-map-information, message: syntax error)
+
+2020-12-04 21:20:23,630 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'isis_deploy' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "get_isis.py", line 16, in isis_deploy
+    neighbors = task.run(name='getting IS-IS neighbors',
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: getting IS-IS neighbors (failed)
+
+
+2020-12-04 21:20:23,631 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'getting IS-IS neighbors' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 360, in _request
+    raise self._reply.error
+ncclient.operations.rpc.RPCError: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_rpc.py", line 21, in pyez_rpc
+    data = function()
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 364, in _exec_rpc
+    return self._junos.execute(rpc, **dec_args)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: get-isis-layer2-map-information, message: syntax error)
+
+2020-12-04 21:20:23,632 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'isis_deploy' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "get_isis.py", line 16, in isis_deploy
+    neighbors = task.run(name='getting IS-IS neighbors',
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: getting IS-IS neighbors (failed)
+
+
+2020-12-04 21:59:03,306 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information', 'extras': None} on 8 hosts
+2020-12-04 22:00:01,739 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information', 'extras': None} on 8 hosts
+2020-12-04 22:00:19,929 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information', 'extras': None} on 8 hosts
+2020-12-04 22:01:46,092 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information', 'extras': None} on 8 hosts
+2020-12-04 22:03:08,754 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information', 'extras': None} on 8 hosts
+2020-12-04 22:29:00,288 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information', 'extras': None} on 8 hosts
+2020-12-04 22:29:34,801 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information', 'extras': None} on 8 hosts
+2020-12-04 22:31:49,367 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information', 'extras': None} on 8 hosts
+2020-12-04 22:32:35,300 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information', 'extras': None} on 8 hosts
+2020-12-04 22:33:08,105 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-ospf-neighbor-information', 'extras': None} on 8 hosts
+2020-12-04 22:35:01,206 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-04 23:29:12,864 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-04 23:31:27,252 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-04 23:32:02,975 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-04 23:32:32,898 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-04 23:33:09,451 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-04 23:33:32,459 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-04 23:35:12,230 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-04 23:37:21,563 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-04 23:38:21,479 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-04 23:38:39,437 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-05 00:05:34,594 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-06 18:29:13,362 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-06 18:30:49,607 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-06 18:31:16,703 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-06 18:33:15,558 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-06 18:55:45,246 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-06 18:56:14,079 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-06 18:56:38,528 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-06 18:57:08,190 -  nornir.core -     INFO -        run() - Running task 'pyez_rpc' with args {'func': 'get-interface-information', 'extras': {'level-extra': 'terse', 'interface-name': 'ge-0/0/0'}} on 8 hosts
+2020-12-06 20:30:40,725 -  nornir.core -     INFO -        run() - Running task 'pyez_facts' with args {} on 1 hosts
+2020-12-06 20:31:10,370 -  nornir.core -     INFO -        run() - Running task 'pyez_facts' with args {} on 2 hosts
+2020-12-06 20:44:49,354 -  nornir.core -  WARNING -        run() - Task 'napalm_get' has not been run – 0 hosts selected
+2020-12-06 20:45:23,001 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_facts']} on 10 hosts
+2020-12-06 20:45:41,485 - nornir.core.task -    ERROR -      start() - Host 'vMX3': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.113:22
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/napalm/junos/junos.py", line 127, in open
+    self.device.open(auto_probe=self.auto_probe)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.113)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/napalm/junos/junos.py", line 129, in open
+    raise ConnectionException(cte.msg) from cte
+napalm.base.exceptions.ConnectionException: None
+
+2020-12-06 20:45:41,485 - nornir.core.task -    ERROR -      start() - Host 'vMX2': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.112:22
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/napalm/junos/junos.py", line 127, in open
+    self.device.open(auto_probe=self.auto_probe)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.112)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/napalm/junos/junos.py", line 129, in open
+    raise ConnectionException(cte.msg) from cte
+napalm.base.exceptions.ConnectionException: None
+
+2020-12-06 20:45:41,485 - nornir.core.task -    ERROR -      start() - Host 'vMX1': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.111:22
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/napalm/junos/junos.py", line 127, in open
+    self.device.open(auto_probe=self.auto_probe)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.111)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/napalm/junos/junos.py", line 129, in open
+    raise ConnectionException(cte.msg) from cte
+napalm.base.exceptions.ConnectionException: None
+
+2020-12-06 20:45:41,485 - nornir.core.task -    ERROR -      start() - Host 'vMX6': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.116:22
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/napalm/junos/junos.py", line 127, in open
+    self.device.open(auto_probe=self.auto_probe)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.116)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/napalm/junos/junos.py", line 129, in open
+    raise ConnectionException(cte.msg) from cte
+napalm.base.exceptions.ConnectionException: None
+
+2020-12-06 20:45:41,485 - nornir.core.task -    ERROR -      start() - Host 'vMX7': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.117:22
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/napalm/junos/junos.py", line 127, in open
+    self.device.open(auto_probe=self.auto_probe)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.117)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/napalm/junos/junos.py", line 129, in open
+    raise ConnectionException(cte.msg) from cte
+napalm.base.exceptions.ConnectionException: None
+
+2020-12-06 20:45:41,486 - nornir.core.task -    ERROR -      start() - Host 'vMX4': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.114:22
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/napalm/junos/junos.py", line 127, in open
+    self.device.open(auto_probe=self.auto_probe)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.114)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/napalm/junos/junos.py", line 129, in open
+    raise ConnectionException(cte.msg) from cte
+napalm.base.exceptions.ConnectionException: None
+
+2020-12-06 20:45:41,486 - nornir.core.task -    ERROR -      start() - Host 'vMX5': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.115:22
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/napalm/junos/junos.py", line 127, in open
+    self.device.open(auto_probe=self.auto_probe)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.115)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/napalm/junos/junos.py", line 129, in open
+    raise ConnectionException(cte.msg) from cte
+napalm.base.exceptions.ConnectionException: None
+
+2020-12-06 20:45:41,486 - nornir.core.task -    ERROR -      start() - Host 'vMX8': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1347, in open
+    self._conn = netconf_ssh.connect(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 168, in connect
+    return connect_ssh(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 135, in connect_ssh
+    session.connect(*args, **kwds)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/transport/ssh.py", line 291, in connect
+    raise SSHError("Could not open socket to %s:%s" % (host, port))
+ncclient.transport.errors.SSHError: Could not open socket to 192.168.20.118:22
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/napalm/junos/junos.py", line 127, in open
+    self.device.open(auto_probe=self.auto_probe)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1385, in open
+    raise EzErrors.ConnectTimeoutError(self)
+jnpr.junos.exception.ConnectTimeoutError: ConnectTimeoutError(192.168.20.118)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 440, in get_connection
+    self.open_connection(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/inventory.py", line 492, in open_connection
+    conn_obj.open(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/napalm/junos/junos.py", line 129, in open
+    raise ConnectionException(cte.msg) from cte
+napalm.base.exceptions.ConnectionException: None
+
+2020-12-06 20:49:54,186 -  nornir.core -     INFO -        run() - Running task 'lacp_config' with args {} on 2 hosts
+2020-12-06 20:49:54,871 - nornir.core.task -    ERROR -      start() - Host 'srxrouter2': task 'lacp chassis config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: mc-ae-id, message: error: syntax error
+error: syntax error)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: error, bad_element: mc-ae-id, message: error: syntax error
+error: syntax error)
+
+2020-12-06 20:49:54,871 - nornir.core.task -    ERROR -      start() - Host 'srxrouter2': task 'lacp_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "mcchassis_lag.py", line 18, in lacp_config
+    chassis_response = task.run(name='lacp chassis config', task=pyez_config, template_path='./mc-lag.j2',
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: lacp chassis config (failed)
+
+
+2020-12-06 20:49:54,990 - nornir.core.task -    ERROR -      start() - Host 'srxrouter1': task 'lacp chassis config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: mc-ae-id, message: error: syntax error
+error: syntax error)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: error, bad_element: mc-ae-id, message: error: syntax error
+error: syntax error)
+
+2020-12-06 20:49:54,990 - nornir.core.task -    ERROR -      start() - Host 'srxrouter1': task 'lacp_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "mcchassis_lag.py", line 18, in lacp_config
+    chassis_response = task.run(name='lacp chassis config', task=pyez_config, template_path='./mc-lag.j2',
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: lacp chassis config (failed)
+
+
+2020-12-06 20:52:04,140 -  nornir.core -     INFO -        run() - Running task 'lacp_config' with args {} on 2 hosts
+2020-12-06 20:52:04,787 - nornir.core.task -    ERROR -      start() - Host 'vMX-PE1': task 'lacp chassis config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: mc-ae-id, message: error: syntax error
+error: syntax error)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: error, bad_element: mc-ae-id, message: error: syntax error
+error: syntax error)
+
+2020-12-06 20:52:04,788 - nornir.core.task -    ERROR -      start() - Host 'vMX-PE1': task 'lacp_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "mcchassis_lag.py", line 18, in lacp_config
+    chassis_response = task.run(name='lacp chassis config', task=pyez_config, template_path='/home/aramide/CodeSampless/multiareaOSPF/mc-lag.j2',
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: lacp chassis config (failed)
+
+
+2020-12-06 20:52:04,792 - nornir.core.task -    ERROR -      start() - Host 'vMX-PE2': task 'lacp chassis config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 834, in execute
+    rpc_rsp_e = self._rpc_reply(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 165, in wrapper
+    raise ex
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 117, in wrapper
+    rsp = function(self, *args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 1440, in _rpc_reply
+    return self._conn.rpc(rpc_cmd_e, filter_xml)._NCElement__doc
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/manager.py", line 226, in execute
+    return cls(self._session,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/third_party/juniper/rpc.py", line 52, in request
+    return self._request(rpc)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/ncclient/operations/rpc.py", line 358, in _request
+    raise RPCError(to_ele(self._reply._raw), errs=errors)
+ncclient.operations.rpc.RPCError: error: syntax error
+error: syntax error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 490, in try_load
+    got = self.rpc.load_config(
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/rpcmeta.py", line 288, in load_config
+    return self._junos.execute(rpc, ignore_warning=ignore_warning)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 76, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/decorators.py", line 31, in wrapper
+    return function(*args, **kwargs)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/device.py", line 854, in execute
+    raise EzErrors.RpcError(cmd=rpc_cmd_e, rsp=rsp, errs=ex)
+jnpr.junos.exception.RpcError: RpcError(severity: error, bad_element: mc-ae-id, message: error: syntax error
+error: syntax error)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir_pyez/plugins/tasks/pyez_config.py", line 24, in pyez_config
+    config.load(template_path=template_path,
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 579, in load
+    return try_load(rpc_contents, rpc_xattrs, ignore_warning=ignore_warning)
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/jnpr/junos/utils/config.py", line 496, in try_load
+    raise ConfigLoadError(cmd=err.cmd, rsp=err.rsp, errs=err.errs)
+jnpr.junos.exception.ConfigLoadError: ConfigLoadError(severity: error, bad_element: mc-ae-id, message: error: syntax error
+error: syntax error)
+
+2020-12-06 20:52:04,792 - nornir.core.task -    ERROR -      start() - Host 'vMX-PE2': task 'lacp_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "mcchassis_lag.py", line 18, in lacp_config
+    chassis_response = task.run(name='lacp chassis config', task=pyez_config, template_path='/home/aramide/CodeSampless/multiareaOSPF/mc-lag.j2',
+  File "/home/aramide/CodeSampless/lib/python3.8/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: lacp chassis config (failed)
+
+
+2020-12-06 21:06:34,576 -  nornir.core -     INFO -        run() - Running task 'lacp_config' with args {} on 2 hosts
